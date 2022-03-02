@@ -1,0 +1,29 @@
+body {
+  background-image: linear-gradient(to bottom right, #121213, #242424);
+}
+
+/* width */
+.overlay::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.overlay::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: #333
+}
+ 
+/* Handle */
+.overlay::-webkit-scrollbar-thumb {
+  background: #555; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.overlay::-webkit-scrollbar-thumb:hover {
+  background: #444; 
+}
+
+#game header {
+  
+}
