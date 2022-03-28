@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+    <title>Randomle - Its kinda random</title>
+    <meta name="description" content="Guess the random stuff">
+
+    <!-- FB Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Randomle - Its kinda random">
+    <meta property="og:description" content="Guess the random stuff">
+
+    <meta name="theme-color" content="#6aaa64" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="images/wordle_logo_32x32.png" rel="icon shortcut" sizes="3232" />
+    <link href="images/wordle_logo_192x192.png" rel="apple-touch-icon" />
+    <meta id="meta-image" name="og:image" itemprop="image" content="images/wordle_og_1200x630.png">
+
+
+    <style>
+      /* Global Styles & Colors */
+      :root {
+        --green: #6aaa64;
+        --darkendGreen: #538d4e;
+        --yellow: #c9b458;
+        --darkendYellow: #b59f3b;
+        --lightGray: #d8d8d8;
+        --gray: #86888a;
+        --darkGray: #939598;
+        --white: #fff;
+        --black: #212121;
+        --l: 100%; 
+        --heading-colour: linear-gradient(to right, var(--color-correct) 14.2857%, var(--color-present) 14.2857%, var(--color-present) 28.5714%, var(--color-absent) 28.5714%, var(--color-absent) 42.8571%, var(--color-present) 42.8571%, var(--color-present) 57.1428%, var(--color-absent) 57.1428%, var(--color-absent) 71.4285%, var(--color-correct) 71.4285%, var(--color-correct) 85.7142%, var(--color-correct) 85.7142%);
+        /* Colorblind colors */
+        --orange: #f5793a;
+        --blue: #85c0f9;
+        --darkendOrange: #ed570c;
+        --darkendBlue: #55a8f7;
+        font-family: 'Montserrat';
+        font-size: 16px;
+        --header-height: 50px;
+        --keyboard-height: 200px;
+        --game-max-width: 100%;
+        --keyboard-max-width: 500px;
+      }
+      /* Light theme colors */
+      :root {
+        --color-tone-1: #1a1a1b;
+        --color-tone-2: #787c7e;
+        --color-tone-3: #878a8c;
+        --color-tone-4: #d3d6da;
+        --color-tone-5: #edeff1;
+        --color-tone-6: #f6f7f8;
+        --color-tone-7: #ffffff;
+        --opacity-50: rgba(255, 255, 255, 0.5);
+      }
+      /* Dark Theme Colors */
+      .nightmode {
+        --color-tone-1: #d7dadc;
+        --color-tone-2: #818384;
+        --color-tone-3: #565758;
+        --color-tone-4: #3a3a3c;
+        --color-tone-5: #272729;
+        --color-tone-6: #1a1a1b;
+        --color-tone-7: #121213;
+        --opacity-50: rgba(0, 0, 0, 0.5);
+      }
+      /* Constant colors and colors derived from theme */
+      :root,
+      .nightmode {
+        --color-background: var(--color-tone-7);
+      }
+      :root {
+        --color-present: var(--yellow);
+        --color-darkpresent: var(--darkendYellow);
+        --color-correct: var(--green);
+        --color-darkcorrect: var(--darkendGreen);
+        --color-absent: var(--color-tone-2);
+        --color-darkabsent: var(--color-tone-3); 
+        --tile-text-color: var(--color-tone-7);
+        --key-text-color: var(--color-tone-1);
+        --key-evaluated-text-color: var(--color-tone-7);
+        --key-bg: var(--color-tone-4);
+        --key-bg-present: var(--color-present);
+        --key-bg-correct: var(--color-correct);
+        --key-bg-absent: var(--color-absent);
+        --modal-content-bg: var(--color-tone-7);
+      }
+      .nightmode {
+        --color-present: var(--yellow);
+        --color-darkpresent: var(--darkendYellow);
+        --color-correct: var(--green);
+        --color-darkcorrect: var(--darkendGreen);
+        --color-absent: var(--color-tone-4);
+        --color-darkabsent: var(--color-tone-5);
+        --tile-text-color: var(--color-tone-1);
+        --key-text-color: var(--color-tone-1);
+        --key-evaluated-text-color: var(--color-tone-1);
+        --key-bg: var(--color-tone-2);
+        --key-bg-present: var(--color-present);
+        --key-bg-correct: var(--color-correct);
+        --key-bg-absent: var(--color-absent);
+        --modal-content-bg: var(--color-tone-7);
+      }
+      .colorblind {
+        --color-correct: var(--orange);
+        --color-darkcorrect: var(--darkendOrange);
+        --color-present: var(--blue);
+        --color-darkpresent: var(--darkendBlue);
+        --tile-text-color: var(--white);
+        --key-bg-present: var(--color-present);
+        --key-bg-correct: var(--color-correct);
+        --key-bg-absent: var(--color-absent);
+      }
+      html {
+        height: 100%;
+      }
+      body {
+        height: 100%;
+        background-color: var(--color-background);
+        margin: 0;
+        padding: 0;
+        /* Prevent scrollbar appearing on page transition */
+        overflow-y: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      (function () {
+        // Defining the hash before the main bundle allows the bundle access window.hash
+        window.wordle = window.wordle || {};
+        window.wordle.hash = 'e65ce0a5';
+      })();
+    </script>
+    <script src="extra.js" defer></script>
+    <script src="main.e65ce0a5.js"></script>    
+    <game-app></game-app>
+  </body>
+</html>
